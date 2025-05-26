@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="gradient-text">Ajeet Kumar</span>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="../index.html" data-page="home" class="nav-link">Home</a></li>
+                    <li><a href="about.html" data-page="about" class="nav-link">About</a></li>
+                    <li><a href="resume.html" data-page="resume" class="nav-link">Resume</a></li>
+                    <li><a href="services.html" data-page="services" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" data-page="portfolio" class="nav-link active">Portfolio</a></li>
+                    <li><a href="contact.html" data-page="contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="about-container">
+        <div class="about-wrapper">
+            <div class="about-header">
+                <h2 class="section-title">PORTFOLIO</h2>
+                <h1>MY WORKS</h1>
+            </div>
+
+            <div class="projects-grid slide-up">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/project1.jpg" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with Django and React</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>React</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/username/project1" target="_blank">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ... same script section as about.html ... -->
+</body>
+</html>

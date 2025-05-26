@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Services</title>
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/services.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="gradient-text">Ajeet Kumar</span>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="../index.html" data-page="home" class="nav-link">Home</a></li>
+                    <li><a href="about.html" data-page="about" class="nav-link">About</a></li>
+                    <li><a href="resume.html" data-page="resume" class="nav-link">Resume</a></li>
+                    <li><a href="services.html" data-page="services" class="nav-link active">Services</a></li>
+                    <li><a href="portfolio.html" data-page="portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="contact.html" data-page="contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="service-header">
+            <h2 class="section-title">SERVICES</h2>
+            <h1 class="my-services">MY SERVICES</h1>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-container">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>LOREM IPSUM</h3>
+                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-container">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Sed ut perspiciatis</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-container">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Magni Dolores</h3>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-container">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Nemo Enim</h3>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-container">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Dele cardo</h3>
+                <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-container">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Divera don</h3>
+                <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.querySelector('i').className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    </script>
+</body>
+</html>

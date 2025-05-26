@@ -1,0 +1,35 @@
+@media (max-width: 1200px) {
+    .page-wrapper {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2rem;
+    }
+    
+    .contact-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+    
+    .icon-box {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 2rem 0;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+}
