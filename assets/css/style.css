@@ -310,3 +310,115 @@
         width: 40px;
     }
 }
+
+/* Responsive styles for tablets and below */
+@media (max-width: 900px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+        position: relative;
+        height: auto;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        transition: left 0.3s;
+    }
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+    .sidebar .profile-section,
+    .sidebar .nav-links,
+    .sidebar .social-links {
+        text-align: center;
+    }
+    .sidebar-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 110;
+        color: inherit;
+        cursor: pointer;
+    }
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 700px) {
+    .sidebar {
+        position: fixed;
+        left: -100vw;
+        top: 0;
+        width: 80vw;
+        height: 100vh;
+        background: var(--sidebar-bg, #fff);
+        box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+        transition: left 0.3s;
+        z-index: 200;
+        padding-top: 3.5rem;
+    }
+    .sidebar.sidebar-open {
+        left: 0;
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .background-shapes {
+        display: none;
+    }
+    .profile-section .name {
+        font-size: 1.5rem;
+    }
+    .profile-section .title {
+        font-size: 1rem;
+    }
+    .nav-links ul {
+        padding: 0;
+    }
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100vw;
+        padding-top: 3.5rem;
+    }
+    .profile-section .profile-image img {
+        width: 80px;
+        height: 80px;
+    }
+    .profile-section .name {
+        font-size: 1.1rem;
+    }
+    .profile-section .title {
+        font-size: 0.9rem;
+    }
+    .nav-links li {
+        font-size: 1rem;
+    }
+    .main-content {
+        padding: 0.5rem;
+    }
+}
+
+/* Hide toggle on desktop */
+.sidebar-toggle {
+    display: none;
+}

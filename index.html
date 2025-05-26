@@ -16,6 +16,10 @@
 <body>
     <div class="main-wrapper">
         <aside class="sidebar">
+            <!-- Add mobile menu toggle button -->
+            <button class="sidebar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="profile-section">
                 <div class="profile-image">
                     <img src="assets/images/Ajeet_Photo.jpeg" alt="Ajeet Kumar">
@@ -54,5 +58,11 @@
         </div>
     </div>
     <script src="assets/js/script.js"></script>
+    <script>
+    // Responsive sidebar toggle
+    document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('sidebar-open');
+    });
+    </script>
 </body>
 </html>
