@@ -1,0 +1,194 @@
+/* Header Component Styles */
+
+/* Base header styles */
+.main-header.full-width {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.main-header.full-width .header-content {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+/* Logo styles */
+.main-header.full-width .logo {
+    min-width: auto;
+    flex: 0 0 auto;
+}
+
+.main-header.full-width .logo a {
+    text-decoration: none;
+}
+
+.main-header.full-width .gradient-text {
+    font-size: 28px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #B8860B, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+/* Navigation styles */
+.main-header.full-width .header-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-header.full-width .header-nav ul {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.main-header.full-width .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-header.full-width .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary-color, #B8860B);
+    transition: width 0.3s ease;
+}
+
+.main-header.full-width .nav-link:hover::after,
+.main-header.full-width .nav-link.active::after {
+    width: 70%;
+}
+
+/* Action buttons */
+.main-header.full-width .header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.main-header.full-width .theme-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.main-header.full-width .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile navigation toggle */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Content spacing with fixed header */
+.main-header.full-width + .page-transition,
+.main-header.full-width + .about-container,
+.main-header.full-width + .service-container,
+.main-header.full-width + .main-content {
+    padding-top: 80px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .main-header.full-width .header-nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .main-header.full-width .header-nav ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header.full-width .header-content {
+        padding: 0 15px;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+        order: 3;
+        margin-left: 15px;
+    }
+    
+    .main-header.full-width .header-nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding: 20px 0;
+    }
+    
+    .main-header.full-width .header-nav.active {
+        left: 0;
+    }
+    
+    .main-header.full-width .header-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    
+    .main-header.full-width .header-nav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-header.full-width .nav-link {
+        display: block;
+        padding: 12px 0;
+    }
+    
+    .main-header.full-width .logo .gradient-text {
+        font-size: 24px;
+    }
+    
+    /* When sidebar is open, hide mobile header menu */
+    body.menu-open .main-header.full-width .header-nav {
+        left: -100%;
+    }
+    
+    .main-header.full-width + .page-transition,
+    .main-header.full-width + .about-container,
+    .main-header.full-width + .service-container,
+    .main-header.full-width + .main-content {
+        padding-top: 60px;
+    }
+}
