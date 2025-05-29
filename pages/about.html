@@ -7,15 +7,22 @@
     <link rel="stylesheet" href="../assets/css/about.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Include header component -->
-    <header class="main-header">
+    <header class="main-header full-width">
         <div class="header-content">
             <div class="logo">
-                <span class="gradient-text">Ajeet Kumar</span>
+                <a href="../index.html">
+                    <span class="gradient-text">Ajeet Kumar</span>
+                </a>
             </div>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav class="header-nav">
                 <ul>
                     <li><a href="../index.html" data-page="home" class="nav-link">Home</a></li>
@@ -94,23 +101,6 @@
         </div>
     </div>
 
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.querySelector('.theme-toggle');
-        const html = document.documentElement;
-        
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggle.querySelector('i').className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        });
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    </script>
+    <script src="../assets/js/header.js"></script>
 </body>
 </html>

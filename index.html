@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -51,8 +53,55 @@
                     <div class="shape-2"></div>
                     <div class="shape-3"></div>
                 </div>
+                
+                <!-- Full-width responsive header -->
+                <header class="main-header full-width">
+                    <div class="header-content">
+                        <div class="logo">
+                            <span class="gradient-text">Ajeet Kumar</span>
+                        </div>
+                        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <nav class="header-nav">
+                            <ul>
+                                <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+                                <li><a href="pages/about.html" data-page="about" class="nav-link">About</a></li>
+                                <li><a href="pages/resume.html" data-page="resume" class="nav-link">Resume</a></li>
+                                <li><a href="pages/services.html" data-page="services" class="nav-link">Services</a></li>
+                                <li><a href="pages/portfolio.html" data-page="portfolio" class="nav-link">Portfolio</a></li>
+                                <li><a href="pages/contact.html" data-page="contact" class="nav-link">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header-actions">
+                            <button class="theme-toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+                
                 <main id="page-content" class="page-transition">
-                    <div id="page-container"></div>
+                    <div id="page-container">
+                        <!-- Default content for homepage -->
+                        <div class="hero-section fade-in">
+                            <div class="hero-content slide-up">
+                                <h1>Hello, I'm <span class="gradient-text">Ajeet Kumar</span></h1>
+                                <p class="hero-subtitle">Python Developer with expertise in building scalable<br class="desktop-only">web applications</p>
+                                
+                                <div class="social-icons">
+                                    <a href="https://github.com/ajeetkumar" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a href="https://linkedin.com/in/ajeetkumar" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:contact@ajeetkumar.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                
+                                <div class="cta-buttons">
+                                    <a href="pages/contact.html" class="primary-btn">Get in Touch</a>
+                                    <a href="pages/portfolio.html" class="secondary-btn">View Work</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
@@ -62,6 +111,81 @@
     // Responsive sidebar toggle
     document.querySelector('.sidebar-toggle').addEventListener('click', function() {
         document.querySelector('.sidebar').classList.toggle('sidebar-open');
+        document.body.classList.toggle('menu-open');
+    });
+    
+    // Mobile header navigation toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const headerNav = document.querySelector('.header-nav');
+    
+    if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function() {
+            headerNav.classList.toggle('active');
+            this.querySelector('i').className = headerNav.classList.contains('active') 
+                ? 'fas fa-times' 
+                : 'fas fa-bars';
+        });
+    }
+    
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        
+        if (window.innerWidth < 992 && 
+            sidebar.classList.contains('sidebar-open') && 
+            !sidebar.contains(event.target) && 
+            event.target !== sidebarToggle) {
+            sidebar.classList.remove('sidebar-open');
+            document.body.classList.remove('menu-open');
+        }
+    });
+    
+    // Initialize theme toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    
+    if (themeToggle) {
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        
+        // Theme toggle event
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.querySelector('i').className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+    }
+    
+    // Initialize sidebar position for mobile
+    function initMobileLayout() {
+        const sidebar = document.querySelector('.sidebar');
+        if (window.innerWidth < 992) {
+            sidebar.classList.remove('sidebar-open');
+        } else {
+            sidebar.classList.remove('sidebar-open'); // Reset sidebar state on larger screens
+        }
+    }
+    
+    // Run on page load and resize
+    window.addEventListener('load', initMobileLayout);
+    window.addEventListener('resize', initMobileLayout);
+    
+    // Load homepage content by default
+    document.addEventListener('DOMContentLoaded', function() {
+        // If no content is loaded, default to home
+        if (document.getElementById('page-container').children.length <= 1) {
+            // Home content is already included in the HTML
+        }
+        
+        // Load header script for consistent behavior
+        const headerScript = document.createElement('script');
+        headerScript.src = 'assets/js/header.js';
+        document.body.appendChild(headerScript);
     });
     </script>
 </body>

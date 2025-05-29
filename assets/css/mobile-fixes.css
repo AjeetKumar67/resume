@@ -1,0 +1,346 @@
+/* Mobile-specific fixes based on the screenshot */
+
+/* Hide break tags on mobile */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+    
+    /* Fix hero section on small screens */
+    .hero-section {
+        padding: 2rem 1rem;
+        text-align: center;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Fix sidebar toggle position */
+    .sidebar-toggle {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 2000;
+        background: var(--primary-color);
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        border: none;
+        cursor: pointer;
+    }
+    
+    /* Fix sidebar on mobile */
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        width: 80%;
+        max-width: 300px;
+        z-index: 1900;
+        transition: left 0.3s ease;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .sidebar.sidebar-open {
+        left: 0;
+    }
+    
+    /* Add overlay when sidebar is open */
+    body.menu-open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1800;
+    }
+    
+    /* Adjust main content */
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 0.5rem;
+    }
+    
+    /* Social icons and CTA buttons */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-icons a {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .cta-buttons a {
+        text-align: center;
+    }
+    
+    /* Button styles */
+    .primary-btn, .secondary-btn {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .primary-btn {
+        background: var(--primary-color);
+        color: #fff;
+    }
+    
+    .secondary-btn {
+        background: transparent;
+        color: var(--text-color);
+        border: 2px solid var(--primary-color);
+    }
+    
+    /* Fix profile section */
+    .profile-section {
+        padding: 2rem 1rem 1rem;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Fix navigation links */
+    .nav-links ul {
+        padding: 0;
+    }
+    
+    /* Galaxy S8+ specific adjustments */
+    @media screen and (max-width: 740px) {
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Fix content overflow */
+        .content-wrapper {
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure all containers are properly sized */
+        #page-container {
+            width: 100%;
+            padding: 0;
+        }
+        
+        /* Fix background shapes */
+        .background-shapes div {
+            opacity: 0.03;
+        }
+    }
+}
+
+/* Full-width header styles */
+.main-header.full-width {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-header.full-width .header-content {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.main-header.full-width .logo {
+    min-width: auto;
+    flex: 0 0 auto;
+}
+
+.main-header.full-width .header-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-header.full-width .header-nav ul {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.main-header.full-width .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-header.full-width .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-header.full-width .nav-link:hover::after,
+.main-header.full-width .nav-link.active::after {
+    width: 70%;
+}
+
+.main-header.full-width .header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.main-header.full-width .theme-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.main-header.full-width .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Push down content to account for fixed header */
+.main-header.full-width + .page-transition {
+    padding-top: 80px;
+}
+
+/* Responsive adjustments for the header */
+@media (max-width: 992px) {
+    .main-header.full-width .header-nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .main-header.full-width .header-nav ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header.full-width .header-content {
+        padding: 0 15px;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+        order: 3;
+        margin-left: 15px;
+    }
+    
+    .main-header.full-width .header-nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding: 20px 0;
+    }
+    
+    .main-header.full-width .header-nav.active {
+        left: 0;
+    }
+    
+    .main-header.full-width .header-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    
+    .main-header.full-width .header-nav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-header.full-width .nav-link {
+        display: block;
+        padding: 12px 0;
+    }
+    
+    .main-header.full-width .logo .gradient-text {
+        font-size: 24px;
+    }
+    
+    /* When sidebar is open, hide mobile header menu */
+    body.menu-open .main-header.full-width .header-nav {
+        left: -100%;
+    }
+}
+
+/* Adjust content spacing for fixed header */
+@media (max-width: 768px) {
+    #page-content {
+        padding-top: 60px;
+    }
+    
+    .hero-section {
+        padding-top: 30px;
+    }
+}

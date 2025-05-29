@@ -1,0 +1,42 @@
+<header class="main-header full-width">
+    <div class="header-content">
+        <div class="logo">
+            <a href="index.html">
+                <span class="gradient-text">Ajeet Kumar</span>
+            </a>
+        </div>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="index.html" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="pages/about.html" data-page="about" class="nav-link">About</a></li>
+                <li><a href="pages/resume.html" data-page="resume" class="nav-link">Resume</a></li>
+                <li><a href="pages/services.html" data-page="services" class="nav-link">Services</a></li>
+                <li><a href="pages/portfolio.html" data-page="portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="pages/contact.html" data-page="contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<script>
+// Mobile header navigation toggle
+const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+const headerNav = document.querySelector('.header-nav');
+
+if (mobileNavToggle) {
+    mobileNavToggle.addEventListener('click', function() {
+        headerNav.classList.toggle('active');
+        this.querySelector('i').className = headerNav.classList.contains('active') 
+            ? 'fas fa-times' 
+            : 'fas fa-bars';
+    });
+}
+</script>

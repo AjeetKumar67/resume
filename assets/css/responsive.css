@@ -1,35 +1,597 @@
+/* Responsive Styles for Portfolio Website */
+
+/* Variables for breakpoints */
+:root {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+}
+
+/* ====== Large Screens (above 1200px) ====== */
+@media (min-width: 1201px) {
+  .container {
+    max-width: 1140px;
+  }
+  
+  /* Keep sidebar visible */
+  .sidebar {
+    width: 300px;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Main content with proper margin */
+  .main-content {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+  
+  /* Hide mobile toggle button */
+  .sidebar-toggle {
+    display: none;
+  }
+  
+  /* Header adjustments */
+  .main-header {
+    width: calc(100% - 300px);
+    left: 300px;
+  }
+}
+
+/* ====== Medium Screens (992px - 1200px) ====== */
 @media (max-width: 1200px) {
-    .page-wrapper {
-        padding: 1rem;
-    }
+  .container {
+    max-width: 960px;
+  }
+  
+  /* Adjust sidebar */
+  .sidebar {
+    width: 280px;
+  }
+  
+  /* Adjust main content */
+  .main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+  }
+  
+  /* Header adjustments */
+  .main-header {
+    width: calc(100% - 280px);
+    left: 280px;
+  }
+  
+  /* Services grid adjustment */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Resume layout adjustment */
+  .resume-grid {
+    gap: 2rem;
+  }
+  
+  /* About page adjustments */
+  .about-header h1 {
+    font-size: 42px;
+  }
+  
+  .header-content {
+    padding: 0 40px;
+  }
+}
+
+/* ====== Tablet Screens (768px - 992px) ====== */
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  /* Transform sidebar to off-canvas */
+  .sidebar {
+    position: fixed;
+    left: -300px;
+    width: 300px;
+    z-index: 1100;
+    transition: left 0.3s ease;
+    background-color: var(--bg-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .sidebar.sidebar-open {
+    left: 0;
+  }
+  
+  /* Make toggle button visible */
+  .sidebar-toggle {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1200;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Adjust main content */
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  /* Header adjustments */
+  .main-header {
+    width: 100%;
+    left: 0;
+  }
+  
+  .header-content {
+    padding: 0 20px;
+  }
+  
+  /* Resume layout becomes single column */
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Services grid adjustment */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* About page adjustments */
+  .info-grid {
+    gap: 1.5rem;
+  }
+  
+  /* Portfolio adjustments */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ====== Mobile Screens (480px - 768px) ====== */
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 15px;
+  }
+  
+  /* Header navigation adjustments */
+  .header-nav {
+    display: none;
+  }
+  
+  /* Fixed header height */
+  .main-header {
+    padding: 10px 0;
+  }
+  
+  .logo .gradient-text {
+    font-size: 24px;
+  }
+  
+  /* Section title adjustments */
+  .section-title {
+    font-size: 12px;
+  }
+  
+  .about-header h1,
+  .service-header .my-services,
+  .my-services {
+    font-size: 32px;
+  }
+  
+  /* Services grid becomes single column */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Resume layout adjustments */
+  .resume-header .section-title {
+    font-size: 2rem;
+  }
+  
+  .column-title {
+    font-size: 1.3rem;
+  }
+  
+  .resume-download {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  /* About page adjustments */
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-description,
+  .additional-description {
+    font-size: 0.95rem;
+  }
+  
+  .job-title {
+    font-size: 20px;
+  }
+  
+  /* Portfolio adjustments */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Contact form adjustments */
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== Small Mobile Screens (below 480px) ====== */
+@media (max-width: 480px) {
+  /* Section heading adjustments */
+  .about-header h1, 
+  .service-header .my-services,
+  .my-services {
+    font-size: 28px;
+  }
+  
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Service cards padding adjustment */
+  .service-card {
+    padding: 30px 20px;
+  }
+  
+  /* Header adjustments */
+  .header-actions {
+    margin-left: 0;
+  }
+  
+  .logo .gradient-text {
+    font-size: 20px;
+  }
+  
+  /* Resume adjustments */
+  .professional-summary {
+    padding: 1rem;
+  }
+  
+  .timeline-item {
+    padding-left: 20px;
+  }
+  
+  .timeline-item h4 {
+    font-size: 16px;
+  }
+  
+  .date {
+    font-size: 14px;
+  }
+  
+  /* Contact form tighter spacing */
+  .input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  /* About page adjustments */
+  .about-header {
+    padding: 30px 15px;
+  }
+  
+  .info-item {
+    margin-bottom: 10px;
+  }
+  
+  /* Sidebar profile image size */
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ====== Specific Component Adjustments ====== */
+
+/* Fix for mobile menu when open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Adjust padding for all page containers */
+.about-container,
+.service-container,
+.resume-section,
+.page-wrapper {
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .about-container,
+  .service-container,
+  .resume-section,
+  .page-wrapper {
+    padding: 30px;
+  }
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better responsive behavior for social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Ensure forms stack properly on mobile */
+input, textarea, button[type="submit"] {
+  width: 100%;
+}
+
+/* Add some spacing for mobile views */
+.resume-section,
+.project-card,
+.service-card,
+.contact-card {
+  margin-bottom: 1.5rem;
+}
+
+/* Ensure buttons are easily clickable on mobile */
+.theme-toggle,
+.download-btn,
+button[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ====== Body & Header Responsive Styles for All Pages ====== */
+
+/* Body styles */
+body {
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-    .header-title {
-        font-size: 2rem;
-    }
-    
-    .contact-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-form-container {
-        padding: 1.5rem;
-    }
-    
-    .icon-box {
-        width: 60px;
-        height: 60px;
-    }
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 480px) {
-    .page-header {
-        padding: 2rem 0;
-    }
-    
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+/* Header responsiveness for all pages */
+.main-header {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .main-header {
+    width: 100%;
+    left: 0;
+    padding: 12px 0;
+  }
+  
+  .header-content {
+    padding: 0 20px;
+  }
+  
+  .header-nav ul {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .header-nav {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: auto;
+    background: var(--bg-color);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    padding: 20px 0;
+    z-index: 1000;
+  }
+  
+  .header-nav.active {
+    left: 0;
+  }
+  
+  .header-nav ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 0;
+  }
+  
+  .header-nav li {
+    margin: 10px 0;
+    width: 100%;
+  }
+  
+  .header-nav .nav-link {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+  }
+  
+  /* Mobile menu toggle */
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+}
+
+/* Page-specific responsive styles */
+
+/* About page */
+@media (max-width: 768px) {
+  .about-container {
+    padding-top: 70px;
+  }
+  
+  .about-header {
+    padding: 30px 15px;
+  }
+  
+  .about-content {
+    padding: 0 15px;
+  }
+}
+
+/* Services page */
+@media (max-width: 768px) {
+  .service-container {
+    padding-top: 70px;
+    padding: 70px 15px 30px;
+  }
+  
+  .service-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* Resume page */
+@media (max-width: 768px) {
+  .resume-header {
+    padding: 30px 15px;
+  }
+  
+  .resume-section {
+    padding: 15px;
+  }
+  
+  .resume-download {
+    padding: 0 15px;
+  }
+  
+  .professional-summary {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+  }
+}
+
+/* Portfolio page */
+@media (max-width: 768px) {
+  .projects-grid {
+    padding: 15px;
+  }
+  
+  .project-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* Contact page */
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 0 15px;
+  }
+  
+  .contact-info {
+    padding: 15px 0;
+  }
+  
+  .contact-form-wrapper {
+    padding: 20px 15px;
+  }
+}
+
+/* Fix for page content to adjust for fixed header */
+@media (max-width: 768px) {
+  .about-container,
+  .service-container,
+  .projects-grid,
+  .contact-content,
+  .resume-section {
+    padding-top: 80px;
+  }
+}
+
+/* Header component for all pages */
+@media (max-width: 992px) {
+  .header-content {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+/* Add mobile menu button and functionality */
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+}
+
+/* Consistent spacings for all pages */
+@media (max-width: 768px) {
+  .section-title {
+    margin-bottom: 5px;
+  }
+  
+  h1, h2, h3 {
+    margin-bottom: 15px;
+  }
+  
+  p {
+    margin-bottom: 15px;
+  }
 }

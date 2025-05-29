@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="../assets/css/about.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="main-header">
+    <header class="main-header full-width">
         <div class="header-content">
             <div class="logo">
-                <span class="gradient-text">Ajeet Kumar</span>
+                <a href="../index.html">
+                    <span class="gradient-text">Ajeet Kumar</span>
+                </a>
             </div>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav class="header-nav">
                 <ul>
                     <li><a href="../index.html" data-page="home" class="nav-link">Home</a></li>
@@ -69,6 +76,6 @@
         </div>
     </div>
 
-    <!-- ... same script section as about.html ... -->
+    <script src="../assets/js/header.js"></script>
 </body>
 </html>

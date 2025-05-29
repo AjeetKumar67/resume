@@ -8,19 +8,26 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/resume.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-      <header class="main-header">
+    <header class="main-header full-width">
         <div class="header-content">
             <div class="logo">
-                <span class="gradient-text">Ajeet Kumar</span>
+                <a href="../index.html">
+                    <span class="gradient-text">Ajeet Kumar</span>
+                </a>
             </div>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav class="header-nav">
                 <ul>
                     <li><a href="../index.html" data-page="home" class="nav-link">Home</a></li>
-                    <li><a href="about.html" data-page="about" class="nav-link active">About</a></li>
-                    <li><a href="resume.html" data-page="resume" class="nav-link">Resume</a></li>
+                    <li><a href="about.html" data-page="about" class="nav-link">About</a></li>
+                    <li><a href="resume.html" data-page="resume" class="nav-link active">Resume</a></li>
                     <li><a href="services.html" data-page="services" class="nav-link">Services</a></li>
                     <li><a href="portfolio.html" data-page="portfolio" class="nav-link">Portfolio</a></li>
                     <li><a href="contact.html" data-page="contact" class="nav-link">Contact</a></li>
@@ -33,31 +40,6 @@
             </div>
         </div>
     </header>
-    <!-- Sidebar -->
-    <!-- <aside class="sidebar">
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="../assets/images/Ajeet_Photo.jpeg" alt="Ajeet Kumar">
-            </div>
-            <h1 class="name">Ajeet Kumar</h1>
-            <p class="title">Python Developer</p>
-        </div>
-        <nav class="nav-links">
-            <ul>
-            <li><a href="../index.html" data-page="home" class="nav-link">Home</a></li>
-            <li><a href="about.html" data-page="about" class="nav-link">About</a></li>
-            <li><a href="resume.html" data-page="resume" class="nav-link active">Resume</a></li>
-            <li><a href="services.html" data-page="services" class="nav-link">Services</a></li>
-            <li><a href="portfolio.html" data-page="portfolio" class="nav-link">Portfolio</a></li>
-            <li><a href="contact.html" data-page="contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
-        </div>
-    </aside> -->
 
     <!-- Main Content -->
     <div class="main-content">
@@ -175,45 +157,6 @@
         </div>
     </div>
 
-    <script>
-        // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.querySelector('.theme-toggle');
-            const html = document.documentElement;
-            const mainContent = document.querySelector('.main-content');
-            const sidebar = document.querySelector('.sidebar');
-            const profileSection = document.querySelector('.profile-section');
-            const allSidebarElements = document.querySelectorAll('.sidebar *');
-
-            // Initialize theme
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-
-            // Disable all transitions for sidebar and main content
-            [sidebar, mainContent, profileSection, ...allSidebarElements].forEach(element => {
-                if (element) {
-                    element.style.transition = 'none';
-                    element.style.transform = 'none';
-                    element.style.animation = 'none';
-                }
-            });
-
-            // Force immediate display
-            if (sidebar) {
-                sidebar.style.opacity = '1';
-                sidebar.style.transform = 'translateX(0)';
-            }
-
-            // Theme toggle event
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                themeToggle.querySelector('i').className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            });
-        });
-    </script>
+    <script src="../assets/js/header.js"></script>
 </body>
 </html>
